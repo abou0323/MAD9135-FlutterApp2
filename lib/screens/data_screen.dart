@@ -6,6 +6,7 @@ class DataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Theme.of(context).colorScheme.secondary,
       alignment: Alignment.center,
       child: Text('Data Page'),
     );

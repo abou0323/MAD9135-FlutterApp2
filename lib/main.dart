@@ -11,6 +11,29 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.indigo,
+          onPrimary: Colors.white,
+          secondary: Colors.indigo.shade200,
+          onSecondary: Colors.black,
+          error: Colors.red,
+          onError: Colors.red.shade900,
+          surface: Colors.indigo.shade50,
+          onSurface: Colors.black,
+        ),
+        textTheme: TextTheme(
+          displayMedium: TextStyle(fontSize: 45),
+          titleLarge: TextStyle(fontSize: 22),
+          titleMedium: TextStyle(fontSize: 16),
+          titleSmall: TextStyle(fontSize: 14),
+          bodyLarge: TextStyle(fontSize: 16),
+          bodyMedium: TextStyle(fontSize: 14),
+          bodySmall: TextStyle(fontSize: 12),
+        ),
+      ),
       home: const MainPage(),
     );
   }
@@ -30,13 +53,14 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Center(child: Text('App Two'))),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.indigo[200],
+        indicatorColor: Theme.of(context).colorScheme.secondary,
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),

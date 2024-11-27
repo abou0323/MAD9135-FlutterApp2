@@ -5,9 +5,35 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      child: Text('Home Page'),
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/sunset.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: Theme.of(context).colorScheme.primary,
+            child: Center(
+              child: Transform.rotate(
+                angle: 0.2,
+                child: Text(
+                  'Welcome Home',
+                  style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
