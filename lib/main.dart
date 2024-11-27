@@ -11,6 +11,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme(
@@ -24,14 +25,9 @@ class MainApp extends StatelessWidget {
           surface: Colors.indigo.shade50,
           onSurface: Colors.black,
         ),
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           displayMedium: TextStyle(fontSize: 45),
           titleLarge: TextStyle(fontSize: 22),
-          titleMedium: TextStyle(fontSize: 16),
-          titleSmall: TextStyle(fontSize: 14),
-          bodyLarge: TextStyle(fontSize: 16),
-          bodyMedium: TextStyle(fontSize: 14),
-          bodySmall: TextStyle(fontSize: 12),
         ),
       ),
       home: const MainPage(),
@@ -48,12 +44,16 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentPageIndex = 0;
-  var screens = [HomeScreen(), DataScreen(), ContactScreen()];
+  List screens = [
+    const HomeScreen(),
+    const DataScreen(),
+    const ContactScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text('App Two'))),
+      appBar: AppBar(title: const Center(child: Text('App Two'))),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {

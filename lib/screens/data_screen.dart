@@ -26,7 +26,7 @@ class _DataScreenState extends State<DataScreen> {
         future: _data,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Text("Error: ${snapshot.error}");
           } else if (snapshot.hasData) {
@@ -49,7 +49,7 @@ class _DataScreenState extends State<DataScreen> {
                       ));
                 });
           } else {
-            return Text('No data');
+            return const Text('No data');
           }
         },
       ),

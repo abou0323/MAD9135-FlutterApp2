@@ -10,7 +10,7 @@ class ContactScreen extends StatefulWidget {
 class _ContactScreenState extends State<ContactScreen> {
   final GlobalKey<FormState> _formStateKey = GlobalKey<FormState>();
 
-  MyData _data = MyData();
+  final MyData _data = MyData();
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +32,11 @@ class _ContactScreenState extends State<ContactScreen> {
                       .titleLarge
                       ?.copyWith(fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 // Name
                 TextFormField(
                   autofocus: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.person),
                     hintText: 'Enter your name',
                     labelText: 'Name',
@@ -53,10 +53,10 @@ class _ContactScreenState extends State<ContactScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 // Email
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.email),
                     hintText: 'Enter your email',
                     labelText: 'Email',
@@ -78,10 +78,10 @@ class _ContactScreenState extends State<ContactScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 24.0),
+                const SizedBox(height: 24.0),
                 // Message
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.message),
                     hintText: 'Enter your message',
                     labelText: 'Message',
@@ -100,15 +100,18 @@ class _ContactScreenState extends State<ContactScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 32.0),
+                const SizedBox(height: 32.0),
                 ElevatedButton(
                     onPressed: () {
                       if (_formStateKey.currentState!.validate()) {
                         _formStateKey.currentState!.save();
                         //
+                        // print('Name: ${_data.name}');
+                        // print('Email: ${_data.email}');
+                        // print('Message: ${_data.message}');
                       }
                     },
-                    child: Row(
+                    child: const Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(Icons.send),
